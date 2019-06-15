@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>Form</title>
+</head>
+
+<body id="particles-js">
+    <div class="container">
+        <div class="row form">
+            <div style="background-image: url('ASSETS/form.jpg');" id="imge" class="col-sm-5"></div>
+            <div class="col-sm-7 d-none d-sm-block">
+                <div class="step">
+                    <div class="bar">
+                        <div id="first"></div>
+                        <div id="myProgress">
+                            <div id="myBar"></div>
+                        </div>
+                        <div id="second"></div>
+                    </div>
+                </div>
+                <div class="frm">
+                    <!-- <h1 style="color: #FBDBC1;">Form</h1> -->
+                    <center>
+                        <form id="multiphase">
+                            <fieldset id="fill">
+                                <table>
+                                    <tr>
+                                        <td> Enter your name</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Enter your Email-Id</td>
+                                        <td><input type="email" name="email"></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Eneter your Address</td>
+                                        <td><input type="text" name="address"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth</td>
+                                        <td><input type="date" name="birthdate"></td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <fieldset id="fill2">
+                                <table>
+                                    <tr>
+                                        <td>Enter Time</td>
+                                        <td><input type="time" name="time" </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Select your gender </td>
+                                        <td><input type="radio" name="Male">Male</td>
+                                        <td><input type="radio" name="female">Female</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Select your fav. field</td>
+                                        <td>
+                                            <select>
+                                                <option value="science">Science</option>
+                                                <option value="commerce">Commerce</option>
+                                                <option value="Arts">Arts</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Choose the colleges</td>
+                                        <td><input type="checkbox" name="MU">Mumbai University</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="IIT">Indian Institue of Technology</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="SP">SP Jain colege</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="chackbox" name="TC">Thakur college</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="SIES">SICES college</td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </form>
+                    </center>
+                    <button id="prv" onclick="prev()">Previous</button>
+                    <button id="nxt" onclick="move()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/particles.js"></script>
+    <script src="JS/app.js"></script>
+    <script>
+        function move() {
+            var elem = document.getElementById("myBar");
+            var scnd = document.getElementById("second");
+            var prev = document.getElementById("prv");
+            var width = 1;
+            scnd.style.backgroundColor = '#072C77';
+            var id = setInterval(frame, 3);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+            prev.style.display = 'inline-block';
+            setTimeout(function() {
+                scnd.style.backgroundColor = '#FBDBC1';
+            }, 399);
+
+
+            document.getElementById("fill").style.display = "none";
+            document.getElementById("fill2").style.display = "block";
+        }
+
+        function prev() {
+            var elem = document.getElementById("myBar");
+            var scnd = document.getElementById("second");
+            var prev = document.getElementById("prv");
+            prev.style.display = 'none';
+            scnd.style.backgroundColor = '#072C77';
+            var width = 100;
+            var id = setInterval(frame, 3);
+
+            function frame() {
+                width--;
+                elem.style.width = width + '%';
+
+
+                document.getElementById("fill2").style.display = "none";
+                document.getElementById("fill").style.display = "block";
+
+            }
+        }
+    </script>
+</body>
+
+</html>
